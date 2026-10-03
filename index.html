@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión Prehistoria: Del Paleolítico al Neolítico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            /* Patrón de fondo sutil para no distraer pero dar textura */
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        h1, h2, h3, .font-title {
+            font-family: 'Nunito', sans-serif;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .correct-answer {
+            background-color: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #166534 !important;
+        }
+        .wrong-answer {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #991b1b !important;
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col items-center">
+
+    <header class="w-full bg-slate-900 text-white text-center py-6 md:py-8 px-4 shadow-lg sticky top-0 z-50 border-b-4 border-indigo-500">
+        <h1 class="text-3xl md:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 drop-shadow-sm mb-2">
+            ⚡ MISIÓN PREHISTORIA
+        </h1>
+        <p class="text-lg text-slate-300 font-semibold">¡Sube de nivel desde las cuevas hasta los poblados!</p>
+        
+        <!-- Navegación Gamificada -->
+        <nav class="mt-6 flex flex-wrap justify-center gap-2 md:gap-4 max-w-4xl mx-auto">
+            <button onclick="showTab('paleo')" id="btn-paleo" class="tab-btn active font-title flex-1 min-w-[140px] bg-orange-500 hover:bg-orange-400 text-white border-b-4 border-orange-700 active:border-b-0 active:translate-y-1 rounded-xl py-3 px-4 text-lg transition-all shadow-md">
+                🏹 Nivel 1:<br>Paleolítico
+            </button>
+            <button onclick="showTab('neo')" id="btn-neo" class="tab-btn font-title flex-1 min-w-[140px] bg-green-500 hover:bg-green-400 text-white border-b-4 border-green-700 active:border-b-0 active:translate-y-1 rounded-xl py-3 px-4 text-lg transition-all shadow-md opacity-80">
+                🌾 Nivel 2:<br>Neolítico
+            </button>
+            <button onclick="showTab('reto')" id="btn-reto" class="tab-btn font-title flex-1 min-w-[140px] bg-indigo-500 hover:bg-indigo-400 text-white border-b-4 border-indigo-700 active:border-b-0 active:translate-y-1 rounded-xl py-3 px-4 text-lg transition-all shadow-md opacity-80">
+                🏆 Nivel 3:<br>Reto Final
+            </button>
+        </nav>
+    </header>
+
+    <main class="w-full max-w-6xl p-4 md:p-8 flex-1">
+
+        <section id="paleo" class="tab-content active">
+            <div class="mb-8 text-center bg-orange-100 p-4 rounded-2xl border-2 border-orange-300">
+                <h2 class="text-2xl font-bold text-orange-800">🏹 EL PALEOLÍTICO (Cazadores y Nómadas)</h2>
+                <p class="text-orange-900 mt-2 font-medium">Fue la etapa más antigua. ¡La supervivencia era un reto diario!</p>
+            </div>
+
+            <!-- Grid de Tarjetas (Chunking Visual) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-orange-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🏃🏽</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Vida Nómada</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Eran <strong>NÓMADAS</strong>: cambiaban de campamento buscando comida.</li>
+                        <li><strong>Vivienda:</strong> Campamentos al aire libre cerca del agua, abrigos rocosos, o <strong>CUEVAS</strong>.</li>
+                        <li>En las cuevas construían cabañas de ramas y piedras contra la humedad.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-orange-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🍖</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Alimentación</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Eran <strong>CAZADORES</strong> y <strong>RECOLECTORES</strong> (frutos).</li>
+                        <li>También <strong>pescaban</strong>.</li>
+                        <li>De los animales usaban todo: Carne (comer), Pieles (abrigo), Tendones (cuerdas) y Huesos (instrumentos).</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-red-500 shadow-md card-hover bg-red-50">
+                    <div class="text-4xl mb-3">🔥</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">El Fuego (Gran Invento)</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li><strong>¿Para qué servía?</strong> Ahuyentar animales, iluminar cuevas y cocinar.</li>
+                        <li><strong>¿Cómo lo hacían?</strong> Primero lo conservaban, luego aprendieron a crearlo.</li>
+                        <li><strong>Métodos:</strong> Por <strong>percusión</strong> (chocar piedra pirita) o por <strong>rotación</strong> (frotar un palo sobre un tronco).</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-gray-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🪨</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Instrumentos</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Primera gran invención: Instrumentos de <strong>PIEDRA tallada</strong> (a golpes).</li>
+                        <li>Más adelante usaron <strong>ASTAS y HUESOS</strong>.</li>
+                        <li>Más tarde añadieron <strong>empuñadura</strong> (para agarrar mejor) y <strong>propulsores</strong> (para lanzar con fuerza).</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-amber-600 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🧥</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Vestidos</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Se vestían con <strong>PIELES de animales</strong>.</li>
+                        <li>Las <strong>raspaban</strong> para quitar la grasa y las <strong>secaban al sol</strong>.</li>
+                        <li>Las cosían usando <strong>agujas de hueso</strong> y un hilo hecho de <strong>tendones</strong> o tiras de cuero.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-purple-500 shadow-md card-hover bg-purple-50">
+                    <div class="text-4xl mb-3">💀</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Curiosidad: Neanderthal</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Hace <strong>80.000 años</strong>, el <em>Homo neanderthalensis</em>.</li>
+                        <li>Fueron los primeros en <strong>ENTERRAR</strong> a sus difuntos.</li>
+                        <li>Los acompañaban de un <strong>AJUAR FUNERARIO</strong> (objetos valiosos como sílex o adornos).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="neo" class="tab-content">
+            <div class="mb-8 text-center bg-green-100 p-4 rounded-2xl border-2 border-green-300">
+                <h2 class="text-2xl font-bold text-green-800">🌾 EL NEOLÍTICO (Agricultores y Sedentarios)</h2>
+                <p class="text-green-900 mt-2 font-medium">Inició hace 10.000 años. Neolítico significa <strong>"Piedra Pulida"</strong> (eliminaban los cantos frotándola).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-green-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🌱</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Agricultura y Ganadería</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li><strong>Plantas:</strong> CEREALES como trigo, cebada y centeno.</li>
+                        <li><strong>Animales domesticados:</strong> Cabras, ovejas y cerdos.</li>
+                        <li>Eran <strong>autosuficientes</strong>: producían lo que consumían.</li>
+                        <li>Hacían <strong>intercambios</strong> (conchas, hachas, cerámica...).</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-emerald-600 shadow-md card-hover bg-emerald-50">
+                    <div class="text-4xl mb-3">🏠</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Vida Sedentaria</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Eran <strong>SEDENTARIOS</strong> (se quedaban en el mismo lugar).</li>
+                        <li>Construían <strong>Poblados/Aldeas</strong> en elevaciones y cerca del agua (beber y regar).</li>
+                        <li>Los protegían con <strong>muros de ADOBE</strong> (barro + paja), troncos y fosos.</li>
+                        <li><strong>Casas:</strong> De adobe, cubiertas con ramas y paja.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-teal-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">⛏️</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Herramientas del Campo</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Fabricaron nuevos instrumentos pulidos:</li>
+                        <li>🌾 <strong>HOZ:</strong> para segar.</li>
+                        <li>🪨 <strong>MOLINO:</strong> para moler grano.</li>
+                        <li>⛏️ <strong>AZADA:</strong> para cavar.</li>
+                        <li>🪓 <strong>HACHA:</strong> para talar y cortar.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-yellow-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🏺</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Nuevos Inventos</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li><strong>CERÁMICA:</strong> Para transportar, almacenar y cocer alimentos.</li>
+                        <li><strong>SILOS:</strong> Agujeros en el suelo para guardar cereales.</li>
+                        <li><strong>CESTERÍA:</strong> Entrecruzando cuerdas hacían cestas.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-blue-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">🧵</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">La Ropa de Tela</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Ya no solo usaban pieles, inventaron la tela gracias a:</li>
+                        <li><strong>El HILADO:</strong> con la invención del <strong>HUSO</strong> (para crear hilo).</li>
+                        <li><strong>El TEJIDO:</strong> con la invención del <strong>TELAR</strong> (para crear la tela).</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border-l-8 border-pink-500 shadow-md card-hover">
+                    <div class="text-4xl mb-3">💎</div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Minería y Adornos</h3>
+                    <ul class="space-y-2 text-slate-700">
+                        <li>Apareció la <strong>MINERÍA</strong>.</li>
+                        <li>Extraían <strong>piedras semipreciosas</strong>.</li>
+                        <li>Las usaban para elaborar <strong>adornos</strong> personales.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="reto" class="tab-content max-w-3xl mx-auto">
+            <div class="mb-8 text-center bg-indigo-100 p-4 rounded-2xl border-2 border-indigo-300">
+                <h2 class="text-2xl font-bold text-indigo-800">🏆 DESAFÍO FINAL</h2>
+                <p class="text-indigo-900 mt-2 font-medium">Demuestra lo que has aprendido. Toca la respuesta correcta para ganar.</p>
+            </div>
+
+            <div id="quiz-container" class="space-y-8">
+                <!-- Las preguntas se inyectarán mediante JS -->
+            </div>
+            
+            <div id="quiz-success" class="hidden text-center bg-green-100 p-8 rounded-3xl border-4 border-green-500 mt-8 shadow-xl">
+                <div class="text-6xl mb-4">🌟🎉🥇</div>
+                <h2 class="text-3xl font-black text-green-800 mb-2">¡NIVEL COMPLETADO!</h2>
+                <p class="text-xl text-green-700 font-bold">¡Eres un experto en la Prehistoria!</p>
+                <button onclick="resetQuiz()" class="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95">
+                    Jugar de nuevo
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- LÓGICA DE PESTAÑAS (TABS) ---
+        function showTab(tabId) {
+            // Ocultar todas las pestañas
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deseleccionar botones
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-b-4');
+                btn.classList.add('opacity-80', 'border-b-4');
+                btn.style.transform = 'translateY(0)';
+            });
+
+            // Mostrar pestaña seleccionada
+            document.getElementById(tabId).classList.add('active');
+            
+            // Activar estilo del botón
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('opacity-80');
+            activeBtn.style.transform = 'translateY(2px)';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- LÓGICA DEL RETO (QUIZ PARA TDAH) ---
+        // Preguntas cortas, directas y claras.
+        const quizData = [
+            {
+                question: "1. ¿En qué etapa el ser humano era NÓMADA y se movía persiguiendo comida?",
+                options: ["Neolítico", "Paleolítico"],
+                correctAnswer: 1
+            },
+            {
+                question: "2. ¿De qué material estaban hechos los muros para proteger los poblados en el Neolítico?",
+                options: ["De acero y ladrillo", "De adobe (barro y paja)"],
+                correctAnswer: 1
+            },
+            {
+                question: "3. ¿Cuál fue el GRAN invento del Paleolítico para calentarse y cocinar?",
+                options: ["El fuego 🔥", "La cerámica 🏺"],
+                correctAnswer: 0
+            },
+            {
+                question: "4. En el Neolítico, ¿para qué se inventó el TELAR y el HUSO?",
+                options: ["Para fabricar ropa de tela", "Para moler grano"],
+                correctAnswer: 0
+            },
+            {
+                question: "5. ¿Qué significa la palabra NEOLÍTICO?",
+                options: ["Piedra Tallada a golpes", "Piedra Pulida (sin cantos)"],
+                correctAnswer: 1
+            }
+        ];
+
+        let currentScore = 0;
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            quizData.forEach((q, index) => {
+                const questionHTML = `
+                    <div class="bg-white p-6 rounded-2xl shadow-md border-2 border-gray-200" id="q-${index}">
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">${q.question}</h3>
+                        <div class="flex flex-col md:flex-row gap-3">
+                            <button onclick="checkAnswer(${index}, 0, this)" class="quiz-btn flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-4 px-6 rounded-xl border-2 border-gray-300 transition-all text-left md:text-center shadow-sm">
+                                ${q.options[0]}
+                            </button>
+                            <button onclick="checkAnswer(${index}, 1, this)" class="quiz-btn flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-4 px-6 rounded-xl border-2 border-gray-300 transition-all text-left md:text-center shadow-sm">
+                                ${q.options[1]}
+                            </button>
+                        </div>
+                        <p class="feedback-msg mt-3 font-bold hidden"></p>
+                    </div>
+                `;
+                container.innerHTML += questionHTML;
+            });
+        }
+
+        function checkAnswer(questionIndex, selectedOption, btnElement) {
+            const container = document.getElementById(`q-${questionIndex}`);
+            const buttons = container.querySelectorAll('.quiz-btn');
+            const feedback = container.querySelector('.feedback-msg');
+            const correctAnswer = quizData[questionIndex].correctAnswer;
+
+            // Desactivar botones de esa pregunta
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('opacity-70', 'cursor-not-allowed');
+                btn.classList.remove('hover:bg-gray-200');
+            });
+
+            feedback.classList.remove('hidden');
+
+            if (selectedOption === correctAnswer) {
+                // Acierto
+                btnElement.classList.remove('bg-gray-100', 'border-gray-300');
+                btnElement.classList.add('correct-answer');
+                feedback.innerHTML = "¡CORRECTO! ✅";
+                feedback.classList.add('text-green-600');
+                currentScore++;
+            } else {
+                // Fallo
+                btnElement.classList.remove('bg-gray-100', 'border-gray-300');
+                btnElement.classList.add('wrong-answer');
+                
+                // Resaltar la correcta
+                buttons[correctAnswer].classList.remove('bg-gray-100', 'border-gray-300');
+                buttons[correctAnswer].classList.add('correct-answer');
+                
+                feedback.innerHTML = "¡Ups! Sigue intentándolo 💪";
+                feedback.classList.add('text-red-600');
+            }
+
+            checkWin();
+        }
+
+        function checkWin() {
+            // Revisa si todas las preguntas han sido respondidas (comprobando si los botones están deshabilitados)
+            const allAnswered = Array.from(document.querySelectorAll('.quiz-btn')).filter(btn => btn.disabled).length === quizData.length * 2; // *2 porque hay 2 botones por pregunta
+            
+            if (allAnswered) {
+                setTimeout(() => {
+                    document.getElementById('quiz-container').classList.add('hidden');
+                    document.getElementById('quiz-success').classList.remove('hidden');
+                    // Scroll suave hacia el mensaje de éxito
+                    document.getElementById('quiz-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 800);
+            }
+        }
+
+        function resetQuiz() {
+            currentScore = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-success').classList.add('hidden');
+            renderQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Inicializar el quiz al cargar la página
+        window.onload = () => {
+            renderQuiz();
+            // Asegurar que el nivel 1 empieza con opacidad correcta
+            document.getElementById('btn-paleo').classList.remove('opacity-80');
+        };
+
+    </script>
+</body>
+</html>
